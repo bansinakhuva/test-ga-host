@@ -30,7 +30,7 @@ function App() {
       label: "New Feature Used",
       value: 1,
     });
-  }, [url]);
+  }, []);
 
   return (
     <div className="App">
