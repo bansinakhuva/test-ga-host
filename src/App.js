@@ -20,8 +20,8 @@ function App() {
     //   event_label: "New Feature Used",
     //   value: 1,
     // });
-    // window.location.href = url;
-  }, [trackEvent]);
+    window.location.href = url;
+  }, [url]);
 
   return (
     <div className="App">
@@ -33,7 +33,10 @@ function App() {
       <br />
       <br />
       <br />
-      <button value="Click Me" onClick={clickHandler}> CLICK ME </button>
+      <button value="Click Me" onClick={clickHandler}>
+        {" "}
+        CLICK ME{" "}
+      </button>
     </div>
   );
 }
