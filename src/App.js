@@ -1,10 +1,12 @@
 import "./App.css";
 import { useCallback, useState } from "react";
 // import { useGoogleAnalytics } from "./use-google-analytics";
+import ReactGA from "react-ga4";
 
 function App() {
   const [url, setUrl] = useState("");
   // const { trackEvent } = useGoogleAnalytics("G-MGC2PD7177"); // Your GA Measurement ID
+  ReactGA.initialize("G-MGC2PD7177");
 
   const inputChangeHandler = useCallback(
     (value) => {
@@ -20,7 +22,14 @@ function App() {
     //   event_label: "New Feature Used",
     //   value: 1,
     // });
-    window.location.href = url;
+    // window.location.href = url;
+
+    ReactGA.event({
+      category: "Feature",
+      action: "Feature Engagement",
+      label: "New Feature Used",
+      value: 1,
+    });
   }, [url]);
 
   return (
