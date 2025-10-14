@@ -1,10 +1,10 @@
 import "./App.css";
 import { useCallback, useState } from "react";
-import { useGoogleAnalytics } from "./use-google-analytics";
+// import { useGoogleAnalytics } from "./use-google-analytics";
 
 function App() {
   const [url, setUrl] = useState("");
-  const { trackEvent } = useGoogleAnalytics("G-MGC2PD7177"); // Your GA Measurement ID
+  // const { trackEvent } = useGoogleAnalytics("G-MGC2PD7177"); // Your GA Measurement ID
 
   const inputChangeHandler = useCallback(
     (value) => {
@@ -15,11 +15,11 @@ function App() {
   );
 
   const clickHandler = useCallback(() => {
-    trackEvent("feature_engagement", {
-      event_category: "Feature",
-      event_label: "New Feature Used",
-      value: 1,
-    });
+    // trackEvent("feature_engagement", {
+    //   event_category: "Feature",
+    //   event_label: "New Feature Used",
+    //   value: 1,
+    // });
     // window.location.href = url;
   }, [trackEvent]);
 
