@@ -16,7 +16,7 @@ function App() {
     [setUrl]
   );
 
-  const clickHandler = useCallback(() => {
+  const maxClickHandler = useCallback(() => {
     // trackEvent("feature_engagement", {
     //   event_category: "Feature",
     //   event_label: "New Feature Used",
@@ -25,9 +25,25 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Feature",
-      action: "Feature Engagement",
-      label: "New Feature Used",
+      category: "Maximize Button Clicked",
+      action: "Click",
+      label: "Autho Assist Maximize Button",
+      value: 1,
+    });
+  }, []);
+
+  const minClickHandler = useCallback(() => {
+    // trackEvent("feature_engagement", {
+    //   event_category: "Feature",
+    //   event_label: "New Feature Used",
+    //   value: 1,
+    // });
+    // window.location.href = url;
+
+    ReactGA.event({
+      category: "Minimize Button Clicked",
+      action: "Click",
+      label: "Autho Assist Minimize Button",
       value: 1,
     });
   }, []);
@@ -42,9 +58,14 @@ function App() {
       <br />
       <br />
       <br />
-      <button value="Click Me" onClick={clickHandler}>
-        {" "}
-        CLICK ME{" "}
+      <button value="Click Me" onClick={maxClickHandler}>
+        Maximize button
+      </button>
+      <br />
+      <br />
+      <br />
+      <button value="Click Me" onClick={minClickHandler}>
+        Minimize button
       </button>
     </div>
   );
