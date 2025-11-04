@@ -48,6 +48,22 @@ function App() {
     });
   }, []);
 
+  const captureTime = useCallback(() => {
+    // trackEvent("feature_engagement", {
+    //   event_category: "Feature",
+    //   event_label: "New Feature Used",
+    //   value: 1,
+    // });
+    // window.location.href = url;
+
+    ReactGA.event("autho_assist_engagement_ms", {
+      form_name: "autho_assist",
+      form_variant: "v1",
+      status: "submit",
+      engagement_ms: 10000000,
+    });
+  }, []);
+
   return (
     <div className="App">
       <input type="text" value={url} onChange={inputChangeHandler}></input>
@@ -66,6 +82,12 @@ function App() {
       <br />
       <button value="Click Me" onClick={minClickHandler}>
         Minimize button
+      </button>
+      <br />
+      <br />
+      <br />
+      <button value="Capture Time" onClick={captureTime}>
+        Time Capture
       </button>
     </div>
   );
