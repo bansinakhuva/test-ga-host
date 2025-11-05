@@ -6,7 +6,14 @@ import ReactGA from "react-ga4";
 function App() {
   const [url, setUrl] = useState("");
   // const { trackEvent } = useGoogleAnalytics("G-MGC2PD7177"); // Your GA Measurement ID
-  ReactGA.initialize("G-MGC2PD7177");
+  // ReactGA.initialize("G-MGC2PD7177");
+  ReactGA.initialize([
+    {
+      trackingId: "G-MGC2PD7177",
+      // Keep analytics quiet unless explicitly to send events:
+      gaOptions: { send_page_view: false },
+    },
+  ]);
 
   const inputChangeHandler = useCallback(
     (value) => {
@@ -25,10 +32,9 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Maximize Button Clicked",
-      action: "Click",
-      label: "Autho Assist Maximize Button",
-      value: 1,
+      category: "Autho assist Dialog",
+      action: "maximize_click",
+      label: "User clicked maximize Button",
     });
   }, []);
 
@@ -41,10 +47,9 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Minimize Button Clicked",
-      action: "Click",
-      label: "Autho Assist Minimize Button",
-      value: 1,
+      category: "Autho assist Dialog",
+      action: "minimize_click",
+      label: "User clicked minimize Button",
     });
   }, []);
 
@@ -56,11 +61,11 @@ function App() {
     // });
     // window.location.href = url;
 
-    ReactGA.event("autho_assist_engagement_ms", {
-      form_name: "autho_assist",
-      form_variant: "v1",
-      status: "submit",
-      engagement_ms: 10000000,
+    ReactGA.event({
+      category: "Autho assist Dialog",
+      action: "visible_duration",
+      label: "Autho assist dialog visible time in seconds",
+      value: 120,
     });
   }, []);
 
