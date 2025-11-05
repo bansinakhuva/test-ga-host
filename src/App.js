@@ -65,7 +65,7 @@ function App() {
       category: "Autho assist Dialog Visible Duration",
       action: "visible_duration",
       label: "Autho assist dialog visible time in seconds",
-      value: 120,
+      visible_duration: 120,
     });
   }, []);
 
