@@ -32,9 +32,9 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Autho assist Dialog",
-      action: "maximize_click",
-      label: "User clicked maximize Button",
+      category: "Autho assist Dialog Maximize",
+      action: "click",
+      label: "Button Clicked",
     });
   }, []);
 
@@ -47,9 +47,9 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Autho assist Dialog",
-      action: "minimize_click",
-      label: "User clicked minimize Button",
+      category: "Autho assist Dialog Minimize",
+      action: "click",
+      label: "Button Clicked",
     });
   }, []);
 
@@ -62,7 +62,7 @@ function App() {
     // window.location.href = url;
 
     ReactGA.event({
-      category: "Autho assist Dialog",
+      category: "Autho assist Dialog Visible Duration",
       action: "visible_duration",
       label: "Autho assist dialog visible time in seconds",
       value: 120,
